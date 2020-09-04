@@ -66,7 +66,7 @@ For instance, if you only use Java in your project, add the following to your
 ```starlark
 load("@bazel_remote_apis//:repository_rules.bzl", "switched_rules_by_language")
 switched_rules_by_language(
-    name = "bazel_remote_apis_imports",
+    name = "com_google_googleapis_imports",
     java = True,
 )
 ```
