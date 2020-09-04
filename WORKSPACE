@@ -84,20 +84,28 @@ bind(
     actual = "@com_github_grpc_grpc//:grpc++",
 )
 
-load("//:repository_rules.bzl", "switched_rules_by_language")
-
-switched_rules_by_language(
-    name = "bazel_remote_apis_imports",
-    cc = True,
-    go = True,
-    java = True,
+# gapic-generator is required by @googleapis
+http_archive(
+    name = "com_google_api_codegen",
+    strip_prefix = "gapic-generator-2.4.5",
+    urls = ["https://github.com/googleapis/gapic-generator/archive/v2.4.5.zip"],
 )
 
 # Needed for the googleapis protos.
 http_archive(
     name = "googleapis",
     build_file = "BUILD.googleapis",
-    sha256 = "7b6ea252f0b8fb5cd722f45feb83e115b689909bbb6a393a873b6cbad4ceae1d",
-    strip_prefix = "googleapis-143084a2624b6591ee1f9d23e7f5241856642f4d",
-    urls = ["https://github.com/googleapis/googleapis/archive/143084a2624b6591ee1f9d23e7f5241856642f4d.zip"],
+    sha256 = "b4a5ef63fd067aa54749c5432c8df7eec47e7e5b01df96937e8f4728cbbeb061",
+    strip_prefix = "googleapis-806d812e0001b4338648f3c7e898e0753d042625",
+    urls = ["https://github.com/googleapis/googleapis/archive/806d812e0001b4338648f3c7e898e0753d042625.zip"],
+)
+
+load("@googleapis//:repository_rules.bzl", "switched_rules_by_language")
+
+switched_rules_by_language(
+    name = "com_google_googleapis_imports",
+    cc = True,
+    gapic = True,
+    go = True,
+    java = True,
 )

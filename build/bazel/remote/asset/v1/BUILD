@@ -1,7 +1,7 @@
 package(default_visibility = ["//visibility:public"])
 
 load("@rules_proto//proto:defs.bzl", "proto_library")
-load("@bazel_remote_apis_imports//:imports.bzl", "java_proto_library", "go_library", "go_proto_library", "cc_grpc_library")
+load("@com_google_googleapis_imports//:imports.bzl", "java_proto_library", "go_library", "go_proto_library", "cc_grpc_library")
 
 licenses(["notice"])
 
@@ -12,9 +12,9 @@ proto_library(
         "//build/bazel/remote/execution/v2:remote_execution_proto",
         "@com_google_protobuf//:duration_proto",
         "@com_google_protobuf//:timestamp_proto",
-        "@googleapis//:google_api_annotations_proto",
-        "@googleapis//:google_api_http_proto",
-        "@googleapis//:google_rpc_status_proto",
+        "@googleapis//google/api:annotations_proto",
+        "@googleapis//google/api:http_proto",
+        "@googleapis//google/rpc:status_proto",
     ],
 )
 

@@ -1,7 +1,7 @@
 package(default_visibility = ["//visibility:public"])
 
 load("@rules_proto//proto:defs.bzl", "proto_library")
-load("@bazel_remote_apis_imports//:imports.bzl", "java_proto_library", "go_library", "go_proto_library", "cc_grpc_library")
+load("@com_google_googleapis_imports//:imports.bzl", "java_proto_library", "go_library", "go_proto_library", "cc_grpc_library")
 
 licenses(["notice"])
 
@@ -13,10 +13,10 @@ proto_library(
         "@com_google_protobuf//:duration_proto",
         "@com_google_protobuf//:timestamp_proto",
         "@com_google_protobuf//:wrappers_proto",
-        "@googleapis//:google_api_annotations_proto",
-        "@googleapis//:google_api_http_proto",
-        "@googleapis//:google_longrunning_operations_proto",
-        "@googleapis//:google_rpc_status_proto",
+        "@googleapis//google/api:annotations_proto",
+        "@googleapis//google/api:http_proto",
+        "@googleapis//google/longrunning:operations_proto",
+        "@googleapis//google/rpc:status_proto",
     ],
 )
 
@@ -35,7 +35,7 @@ cc_grpc_library(
         "//build/bazel/semver:semver_cc_proto",
         "@googleapis//:google_api_annotations_cc_proto",
         "@googleapis//:google_api_http_cc_proto",
-        "@googleapis//:google_longrunning_operations_cc_proto",
+        "@googleapis//google/longrunning:longrunning_cc_grpc",
         "@googleapis//:google_rpc_status_cc_proto",
     ],
 )
